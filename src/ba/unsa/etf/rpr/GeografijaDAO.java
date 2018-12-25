@@ -21,8 +21,8 @@ public class GeografijaDAO {
     private static void initialize(){
         instance = new GeografijaDAO();
         String[] naziviGradova = new String[]{"London", "Pariz", "Beč", "Manchester", "Graz"};
-        String[] naziviDrzava = new String[]{"Engleska", "Francuska", "Austrija", "Engleska", "Austrija"};
-        Integer[] stanovnici = new Integer[]{8787892, 2200000, 1868000, 550000, 846000};
+        String[] naziviDrzava = new String[]{"Velika Britanija", "Francuska", "Austrija", "Velika Britanija", "Austrija"};
+        Integer[] stanovnici = new Integer[]{8825000, 2206488, 1899055, 545500, 280200};
         instance.isprazniTablice();
         for(int i = 0; i  < stanovnici.length; i++) {
             Grad g = new Grad();

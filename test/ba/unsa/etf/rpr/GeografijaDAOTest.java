@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GeografijaDAOTest {
 
-    @Test
+   @Test
     void regenerateFile() {
         GeografijaDAO.removeInstance();
         File dbfile = new File("baza.db");

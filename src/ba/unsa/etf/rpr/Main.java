@@ -12,7 +12,7 @@ public class Main {
         String s = "";
         g.addAll(geo.gradovi());
         for(Grad grad : g)
-            s = s + grad.getNaziv() + "(" + grad.getDrzava().getNaziv() + ") - " + grad.getBrojStanovnika() + "\n";
+            s = s + grad.getNaziv() + " (" + grad.getDrzava().getNaziv() + ") - " + grad.getBrojStanovnika() + "\n";
         return s;
     }
     public static void glavniGrad(){
@@ -27,9 +27,6 @@ public class Main {
         }
     }
     public static void main(String[] args) {
-        GeografijaDAO geo = GeografijaDAO.getInstance();
-        ArrayList<Grad> g = new ArrayList<Grad>();
-        g.addAll(geo.gradovi());
         System.out.println(ispisiGradove());
     }
 }
