@@ -1,12 +1,10 @@
 package ba.unsa.etf.rpr;
 
 public class Drzava {
-    String naziv;
-    String glavni_grad;
+   private String naziv;
+    private Grad glavniGrad;
 
-    public Drzava(String naziv, String glavni_grad) {
-        this.naziv = naziv;
-        this.glavni_grad = glavni_grad;
+    public Drzava() {
     }
 
     public String getNaziv() {
@@ -17,11 +15,11 @@ public class Drzava {
         this.naziv = naziv;
     }
 
-    public String getGlavni_grad() {
-        return glavni_grad;
+    public Grad getGlavniGrad() {
+        return glavniGrad;
     }
 
-    public void setGlavni_grad(String glavni_grad) {
-        this.glavni_grad = glavni_grad;
+    public void setGlavniGrad(Grad glavniGrad) {
+        this.glavniGrad = glavniGrad;
     }
 }
