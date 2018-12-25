@@ -20,6 +20,23 @@ public class GeografijaDAO {
     private PreparedStatement updateGrad;
     private static void initialize(){
         instance = new GeografijaDAO();
+        String[] naziviGradova = new String[]{"London", "Pariz", "Beč", "Manchester", "Graz"};
+        String[] naziviDrzava = new String[]{"Engleska", "Francuska", "Austrija", "Engleska", "Austrija"};
+        Integer[] stanovnici = new Integer[]{8787892, 2200000, 1868000, 550000, 846000};
+        instance.isprazniTablice();
+        for(int i = 0; i  < stanovnici.length; i++) {
+            Grad g = new Grad();
+            Drzava d = new Drzava();
+            g.setNaziv(naziviGradova[i]);
+            g.setBrojStanovnika(stanovnici[i]);
+            d.setNaziv(naziviDrzava[i]);
+            if(i < 3)
+                d.setGlavniGrad(g);
+            g.setDrzava(d);
+            instance.dodajGrad(g);
+            instance.dodajDrzavu(d);
+
+        }
     }
     private GeografijaDAO(){
         gradTabela = "CREATE TABLE IF NOT EXISTS grad (\n"
@@ -82,7 +99,7 @@ public class GeografijaDAO {
             return glavni;
         }
         } catch (SQLException e) {
-            e.printStackTrace();
+            return null;
         }
         return null;
     }
@@ -94,8 +111,12 @@ public class GeografijaDAO {
                deleteGrad.setInt(1, rs.getInt("glavni_grad"));
                deleteGrad.executeUpdate();
            }
+           selectDrzava.setString(1, drzava);
+           rs = selectDrzava.executeQuery();
+           if(rs.next()) {
                deleteDrzava.setString(1, drzava);
                deleteDrzava.executeUpdate();
+           }
 
        } catch (SQLException e) {
            e.printStackTrace();
@@ -108,22 +129,27 @@ public class GeografijaDAO {
             Statement s = conn.createStatement();
             Statement s2 = conn.createStatement();
             ResultSet rs = s.executeQuery("SELECT * FROM GRAD");
-            ResultSet rs1 = s2.executeQuery("SELECT * FROM DRZAVA");
-            System.out.println();
-            System.out.println();
-            while (rs.next()){
-                System.out.println(rs.getInt(1) + " " + " " + rs.getString(2) + " " +
-                        rs.getInt(3) + " " + rs.getInt(4));
-            }
-            System.out.println();
-            while (rs1.next()){
-                System.out.println(rs1.getInt(1) + " " + " " + rs1.getString(2) + " " +
-                        rs1.getInt(3));
+            ResultSet rs1;
+            while(rs.next()){
+                Grad g = new Grad();
+                Drzava d = new Drzava();
+                //System.out.println(rs.getInt(1) + rs.getString(2) + rs.getInt(3) + rs.getInt(4));
+                g.setNaziv(rs.getString(2));
+                g.setBrojStanovnika(rs.getInt(3));
+                rs1 = s2.executeQuery("SELECT naziv FROM DRZAVA WHERE id=" + rs.getInt("drzava"));
+                d = nadjiDrzavu(rs1.getString("naziv"));
+                g.setDrzava(d);
+                listaGradova.add(g);
             }
         }
         catch(SQLException e){
             e.printStackTrace();
         }
+        listaGradova.sort((Grad g1, Grad g2) -> {
+            if(g1.getBrojStanovnika() > g2.getBrojStanovnika()) return -1;
+            else if(g1.getBrojStanovnika() < g2.getBrojStanovnika()) return 1;
+            return 0;
+        });
         return listaGradova;
     }
     // Najbolje je ubaciti u tablicu sve elemente pa tek na kraju foreign key
@@ -185,10 +211,31 @@ public class GeografijaDAO {
         }
     }
     public void izmijeniGrad(Grad grad){
+        try {
+            Statement s = conn.createStatement();
+            ResultSet rs = s.executeQuery("SELECT * FROM GRAD WHERE broj_stanovnika=" + grad.getBrojStanovnika());
+            if(rs.next()){
+                s.executeUpdate("UPDATE grad SET naziv='" + grad.getNaziv() + "'");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
     public Drzava nadjiDrzavu(String drzava){
-        return null;
+        Grad glavni = this.glavniGrad(drzava);
+        if(glavni == null) return null;
+        Drzava d = new Drzava();
+        try {
+            Statement s = conn.createStatement();
+            ResultSet rs = s.executeQuery("SELECT * FROM DRZAVA WHERE naziv='" + drzava + "'");
+                d.setNaziv(drzava);
+                d.setGlavniGrad(glavni);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return d;
     }
     public void isprazniTablice(){
         try {
