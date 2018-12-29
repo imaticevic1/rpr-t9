@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,9 +11,8 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GeografijaDAOTest {
-
    @Test
-    void regenerateFile() {
+    void aregenerateFile() {
         GeografijaDAO.removeInstance();
         File dbfile = new File("baza.db");
         dbfile.delete();

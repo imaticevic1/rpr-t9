@@ -1,0 +1,29 @@
+#zaglavlje {
+-fx-background-color: darkorange;
+}
+#boksa {
+-fx-background-color: deepskyblue;
+}
+#naslov{
+-fx-font-family: serif;
+-fx-font-size: 25px;
+-fx-text-fill: gold;
+-fx-font-weight: bold;
+
+}
+.meniOpcija {
+-fx-font-family: oblique;
+-fx-font-size: 13px;
+-fx-font-weight: bold;
+-fx-text-fill: chocolate;
+-fx-underline: true;
+}
+#meni {
+-fx-background-color: aqua
+}
+.labelePanova {
+-fx-font-family: Arial;
+-fx-font-size: 12px;
+-fx-font-weight: bold;
+-fx-text-fill: saddlebrown;
+}

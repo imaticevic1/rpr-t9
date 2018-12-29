@@ -22,11 +22,11 @@ public class Main {
         try {
             Grad g = geo.glavniGrad(s);
             System.out.println("Glavni grad države " + s + " je " + g.getNaziv());
-        }catch(IllegalArgumentException e){
-            System.out.println(e.getMessage());
+        }catch(NullPointerException e){
+            System.out.println("Drzava ne postoji u bazi!");
         }
     }
     public static void main(String[] args) {
-        System.out.println(ispisiGradove());
+        glavniGrad();
     }
 }
