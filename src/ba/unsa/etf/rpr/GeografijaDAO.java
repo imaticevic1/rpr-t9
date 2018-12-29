@@ -137,9 +137,11 @@ public class GeografijaDAO {
                 g.setNaziv(rs.getString(2));
                 g.setBrojStanovnika(rs.getInt(3));
                 rs1 = s2.executeQuery("SELECT naziv FROM DRZAVA WHERE id=" + rs.getInt("drzava"));
-                d = nadjiDrzavu(rs1.getString("naziv"));
-                g.setDrzava(d);
-                listaGradova.add(g);
+                if(rs1.next()) {
+                    d = nadjiDrzavu(rs1.getString("naziv"));
+                    g.setDrzava(d);
+                    listaGradova.add(g);
+                }
             }
         }
         catch(SQLException e){
