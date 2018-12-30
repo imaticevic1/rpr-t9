@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr;
 import javafx.util.converter.PercentageStringConverter;
+import net.sf.jasperreports.engine.JRException;
 
 import java.sql.*;
 import java.sql.Connection;
@@ -253,7 +254,5 @@ public class GeografijaDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
     }
 }
