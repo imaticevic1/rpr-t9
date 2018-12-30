@@ -37,7 +37,7 @@
                                 <Image url="@globus.png"/>
                             </image>
                         </ImageView>
-                        <Label fx:id="naslov" text="%Bazapodatakagradovaidrzava" />
+                        <Label fx:id="naslov" text="Baza podataka gradova i drzava" />
                     </children>
                 </HBox>
             </children>
@@ -46,12 +46,12 @@
 <left>
     <VBox id="meni" prefWidth="110" prefHeight="200" BorderPane.alignment="CENTER" spacing="5">
         <children>
-            <Hyperlink fx:id="meniOpcija" text="%Početna" styleClass="meniOpcija"/>
-            <Hyperlink fx:id="meniOpcija1" text="%Dodajgrad" styleClass="meniOpcija"/>
-            <Hyperlink fx:id="meniOpcija2" text="%Dodajdržavu" styleClass="meniOpcija"/>
-            <Hyperlink fx:id="meniOpcija3" text="%Glavnigrad" styleClass="meniOpcija"/>
-            <Hyperlink fx:id="meniOpcija4" text="%Obrišidržavu" styleClass="meniOpcija"/>
-            <Hyperlink fx:id="meniOpcija5" text="%Spisakgradova" styleClass="meniOpcija"/>
+            <Hyperlink fx:id="meniOpcija" text="Početna" styleClass="meniOpcija"/>
+            <Hyperlink fx:id="meniOpcija1" text="Dodaj grad" styleClass="meniOpcija"/>
+            <Hyperlink fx:id="meniOpcija2" text="Dodaj državu" styleClass="meniOpcija"/>
+            <Hyperlink fx:id="meniOpcija3" text="Glavni grad" styleClass="meniOpcija"/>
+            <Hyperlink fx:id="meniOpcija4" text="Obriši državu" styleClass="meniOpcija"/>
+            <Hyperlink fx:id="meniOpcija5" text="Spisak gradova" styleClass="meniOpcija"/>
         </children>
     </VBox>
 </left>
@@ -69,7 +69,7 @@
                         <Insets topRightBottomLeft="20" />
                     </padding>
                     <children>
-                        <Label text="%Dobrodošliuprogramgeografija" styleClass="labelePanova"  />
+                        <Label text="Dobro došli u program geografija" styleClass="labelePanova"  />
                     </children>
                 </GridPane>
                 <GridPane fx:id="gridPane2" vgap = "15" hgap="10" visible="false" >
@@ -94,7 +94,7 @@
                         <TextField fx:id="gradTekst" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label text="${controller.stanovnici}" GridPane.rowIndex="2" styleClass="labelePanova" />
                         <TextField fx:id="stanovniciTekst" GridPane.rowIndex="2" GridPane.columnIndex="1" />
-                        <Button fx:id="dugmeDodaj" GridPane.rowIndex="3" text="%Dodaj" styleClass="dugme" />
+                        <Button fx:id="dugmeDodaj" GridPane.rowIndex="3" text="Dodaj" styleClass="dugme" />
                     </children>
                 </GridPane>
                 <GridPane fx:id="gridPane3" vgap = "15" hgap="10" visible="false" >
@@ -113,7 +113,7 @@
                         <ColumnConstraints />
                     </columnConstraints>
                     <children>
-                        <Label text="%Unesitenazivdržave" styleClass="labelePanova"/>
+                        <Label text="Unesite naziv države" styleClass="labelePanova"/>
                         <TextField fx:id="drzava1Tekst" GridPane.columnIndex="2" />
                         <Label text="${controller.glavni}" GridPane.rowIndex="1" GridPane.columnSpan="4" styleClass="labelePanova"/>
                         <Button fx:id="glGrad" text="${controller.dugmeLabela}" styleClass="dugme" GridPane.rowIndex="2" />
@@ -135,10 +135,10 @@
                         <ColumnConstraints />
                     </columnConstraints>
                     <children>
-                        <Label text="%Kojudržavuželiteobrisati?" styleClass="labelePanova"/>
+                        <Label text="Koju državu želite obrisati?" styleClass="labelePanova"/>
                         <TextField fx:id="drzava2Tekst" GridPane.columnIndex="2" />
                         <Label text="${controller.brisanje}" GridPane.rowIndex="1" GridPane.columnSpan="4" styleClass="labelePanova"/>
-                        <Button fx:id="dugmeBrisi" text="%Obriši" GridPane.rowIndex="2" styleClass="dugme" />
+                        <Button fx:id="dugmeBrisi" text="Obriši" GridPane.rowIndex="2" styleClass="dugme" />
                     </children>
                 </GridPane>
                 <GridPane fx:id="gridPane5" vgap = "15" hgap="10" visible="false" >

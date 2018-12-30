@@ -13,10 +13,9 @@ public class Main1 extends Application {
     @Override
     //
     public void start(Stage primaryStage) throws Exception{
-        ResourceBundle bundle = ResourceBundle.getBundle("Translation");
         Controller con = new Controller();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/geografijaDAO.fxml"), bundle);
-        primaryStage.setTitle(bundle.getString("Drzaveigradovi"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("geografijaDAO.fxml"));
+        primaryStage.setTitle("Drzave i gradovi");
         loader.setController(con);
         primaryStage.setScene(new Scene(loader.load(), 600, 400));
         primaryStage.show();
