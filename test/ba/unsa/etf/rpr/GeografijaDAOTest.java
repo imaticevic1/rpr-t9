@@ -1,8 +1,5 @@
 package ba.unsa.etf.rpr;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -14,7 +11,7 @@ class GeografijaDAOTest {
    @Test
     void aregenerateFile() {
         GeografijaDAO.removeInstance();
-        File dbfile = new File("baza.db");
+        File dbfile = new File("ba/unsa/etf/rpr/baza.db");
         dbfile.delete();
         GeografijaDAO dao = GeografijaDAO.getInstance();
         ArrayList<Grad> gradovi = dao.gradovi();

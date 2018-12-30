@@ -66,8 +66,9 @@ public void napraviDrzavu(String nazivGrada, String nazivDrzave, Integer brojSta
     d.setNaziv(nazivDrzave);
     d.setGlavniGrad(g);
     g.setDrzava(d);
-    geo.dodajDrzavu(d);
     geo.dodajGrad(g);
+    geo.dodajDrzavu(d);
+
 }
 private void omoguci(int broj){
        Thread thread1 = new Thread(new Runnable() {

@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr;
 
+import net.sf.jasperreports.engine.JRException;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import java.util.ArrayList;
@@ -27,6 +28,6 @@ public class Main {
         }
     }
     public static void main(String[] args) {
-        glavniGrad();
+
     }
 }

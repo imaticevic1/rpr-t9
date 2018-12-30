@@ -8,6 +8,11 @@ import java.util.ArrayList;
 
 public class GeografijaDAO {
     private static GeografijaDAO instance = null;
+
+    public Connection getConn() {
+        return conn;
+    }
+
     private Connection conn;
     private String gradTabela, drzavaTabela;
     private PreparedStatement insertGrad;
@@ -111,7 +116,7 @@ public class GeografijaDAO {
                deleteGrad.setInt(1, rs.getInt("glavni_grad"));
                deleteGrad.executeUpdate();
            }
-           selectDrzava.setString(1, drzava);
+           //selectDrzava.setString(1, drzava);
            rs = selectDrzava.executeQuery();
            if(rs.next()) {
                deleteDrzava.setString(1, drzava);
@@ -133,7 +138,7 @@ public class GeografijaDAO {
             while(rs.next()){
                 Grad g = new Grad();
                 Drzava d = new Drzava();
-                //System.out.println(rs.getInt(1) + rs.getString(2) + rs.getInt(3) + rs.getInt(4));
+                System.out.println(rs.getInt(1) + rs.getString(2) + rs.getInt(3) + rs.getInt(4));
                 g.setNaziv(rs.getString(2));
                 g.setBrojStanovnika(rs.getInt(3));
                 rs1 = s2.executeQuery("SELECT naziv FROM DRZAVA WHERE id=" + rs.getInt("drzava"));
